@@ -162,7 +162,8 @@ This project includes a **GitHub Actions CI/CD pipeline** that automatically:
 - Runs tests on every push and pull request
 - Validates code in a clean Ubuntu environment with Chrome
 - Generates test execution reports
-- Provides test artifacts for download
+- Displays test execution summary in the GitHub Actions tab (requires GitHub login to view)
+- Provides test artifacts for download (requires GitHub login to view)
 
 The pipeline status is shown by the badge at the top of this README.
 
