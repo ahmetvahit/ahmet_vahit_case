@@ -1,4 +1,4 @@
-# 📄 Insider QA Engineer – Case Study Submission
+# 📄 QA Engineer – Case Study Submission
 
 ## Overview
 
