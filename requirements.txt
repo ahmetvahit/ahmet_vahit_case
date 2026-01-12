@@ -1,0 +1,7 @@
+# Insider QA Jobs Test Automation - Python Requirements
+
+# Selenium WebDriver - Web browser automation
+selenium==4.16.0
+
+# WebDriver Manager - Automatic driver management for Chrome
+webdriver-manager==4.0.1
