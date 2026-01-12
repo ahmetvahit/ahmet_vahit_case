@@ -2,6 +2,7 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select, WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.chrome.webdriver import WebDriver as ChromeDriver
 from pages.base_page import BasePage
 
 
@@ -45,7 +46,7 @@ class JobsPage(BasePage):
                 if len(jobs) == 0:
                     return False
                 for job in jobs:
-                    location_element = WebDriverWait(job, 20).until(
+                    location_element = WebDriverWait[ChromeDriver](job, 20).until(
                         EC.presence_of_element_located(self.JOB_LOCATION)
                     )
                     if expected_location not in location_element.text:
