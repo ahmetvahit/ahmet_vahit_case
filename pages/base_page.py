@@ -10,7 +10,7 @@ class BasePage:
     
     def __init__(self, driver):
         self.driver = driver
-        self.wait = WebDriverWait[ChromeDriver](driver, 15)
+        self.wait = WebDriverWait[ChromeDriver](driver, 30)
     
     def navigate_to(self, url):
         """Navigate to specified URL."""

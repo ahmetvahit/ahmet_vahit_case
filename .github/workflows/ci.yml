@@ -57,8 +57,7 @@ jobs:
         run: |
           mkdir -p reports
           python -m unittest tests.test_insider_jobs -v 2>&1 | tee reports/test_output.txt
-        env:
-          HEADLESS: "true"
+          exit ${PIPESTATUS[0]}
       
       - name: Generate Test Summary
         if: always()
