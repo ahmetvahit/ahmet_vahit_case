@@ -1,5 +1,7 @@
 # 📄 QA Engineer – Case Study Submission
 
+![CI/CD Pipeline](https://github.com/ahmetvahit/ahmet_vahit_case/actions/workflows/ci.yml/badge.svg)
+
 ## Overview
 
 This repository contains an **end-to-end automated test case** prepared for the **Insider QA Engineer Assessment Project**.  
@@ -17,6 +19,7 @@ The test scenario validates the **Quality Assurance job listing flow** on the In
 | **Design Pattern** | Page Object Model (POM) |
 | **Driver Management** | webdriver-manager |
 | **Browser** | Google Chrome (Chromium-based) |
+| **CI/CD** | GitHub Actions |
 
 > **Note:** The `unittest` framework was preferred as it is Python's **standard testing framework**, **non-BDD based**, and **fully compliant** with the given case requirements.
 
@@ -54,15 +57,9 @@ Each listed job is validated to contain:
 
 ---
 
-## ⚠️ Important Note on Location Value
+## ⚠️ Important Note
 
-In the case description, the location value is specified as **"Istanbul, Turkey"**.  
-However, during implementation it was observed that:
-
-- The HTML content and UI display the location as **"Istanbul, Turkiye"**
-- Filtered job listings also use **"Istanbul, Turkiye"** instead of "Turkey"
-
-**For this reason, assertions and validations are implemented based on the actual values rendered by the application**, ensuring **accurate and reliable test results**.
+The case description specifies **"Istanbul, Turkey"**, but the application renders **"Istanbul, Turkiye"** in both UI and filtered results. Test assertions use the actual rendered value to ensure accuracy.
 
 ---
 
@@ -116,6 +113,18 @@ ChromeDriver will be managed automatically by `webdriver-manager`.
 
 ---
 
+## 🔄 Continuous Integration
+
+This project includes a **GitHub Actions CI/CD pipeline** that automatically:
+- ✅ Runs tests on every push and pull request
+- ✅ Validates code in a clean Ubuntu environment with Chrome
+- ✅ Generates test execution reports
+- ✅ Provides test artifacts for download
+
+The pipeline status is shown by the badge at the top of this README.
+
+---
+
 ## ▶️ How to Run the Test
 
 ### Method 1: Run with unittest module (Recommended)
@@ -158,85 +167,20 @@ python tests/test_insider_jobs.py
 === TEST COMPLETED SUCCESSFULLY ===
 ```
 
----
+## 🧪 Test Implementation Highlights
 
-## 📝 Notes on Implementation
-
-### ✅ Optimized Selectors
-- **CSS selectors** are used instead of brittle absolute XPaths
-- Selectors follow best practices for maintainability and performance
-
-### ✅ Explicit Waits
-- **Explicit waits** are preferred over implicit waits to improve test stability
-- Custom wait conditions are implemented for dynamic content (e.g., filtering results)
-- `WebDriverWait` is used with appropriate conditions (`visibility_of_element_located`, `presence_of_element_located`, etc.)
-
-### ✅ Assertions at Every Step
-- Assertions are applied at every critical step
-- Test fails fast with clear error messages
-- `unittest` assertions: `assertTrue()`, `assertEqual()`, etc.
-
-### ✅ Code Quality
-- Code readability and maintainability were prioritized
-- Clear method names and comprehensive docstrings
-- Follows **PEP 8** Python style guidelines
-- No hardcoded waits (`time.sleep()`) – only explicit waits
-
-### ✅ Page Object Model (POM)
-- Each page has its own class with encapsulated locators and actions
-- Reusable methods in `BasePage`
-- Test code is separated from page logic
+- **Page Object Model (POM):** Each page has its own class with encapsulated locators and methods
+- **Explicit Waits:** `WebDriverWait` with appropriate conditions for dynamic content handling
+- **Optimized Selectors:** CSS selectors prioritized for maintainability and performance
+- **Comprehensive Validation:** URL checks, element visibility, filter functionality, and job listing criteria
+- **Error Reporting:** Detailed validation messages with clear assertion points
+- **No Hardcoded Delays:** Only explicit waits, no `time.sleep()` calls
 
 ---
-
-## 🧪 Test Case Details
-
-### Home Page Verification
-- **URL Check:** Validates the current URL contains `insiderone.com`
-- **Element Check:** Logo, navigation menu, and footer are visible
-
-### Careers Page Verification
-- **URL Check:** Validates the current URL contains `careers/quality-assurance`
-- **Element Check:** "See all QA jobs" button is visible and clickable
-- **Title Check:** Page title contains "Quality Assurance"
-
-### Jobs Page Verification
-- **URL Check:** Validates the URL contains `careers/open-positions?department=qualityassurance`
-- **Filter Check:** Location and Department filters are visible and functional
-- **Job List Check:** Jobs are displayed after filtering
-- **Dynamic Loading:** Waits for job items to be fully loaded before validation
-
-### Job Validation Logic
-- Iterates through all job listings
-- Validates each job contains:
-  - **Position:** "Quality Assurance"
-  - **Department:** "Quality Assurance"
-  - **Location:** "Istanbul, Turkiye"
-- Reports any validation errors with detailed messages
-
-### Lever Redirection Verification
-- Clicks the "View Role" button on the first job
-- Switches to the newly opened window
-- Validates the URL contains `jobs.lever.co/insider`
-
----
-
-## 🎯 Final Remarks
-
-This case study was designed to reflect **real-world QA practices**, focusing on:
-
-- ✅ **Reliability:** Explicit waits and stable locators ensure test consistency
-- ✅ **Maintainability:** POM pattern allows easy updates when UI changes
-- ✅ **Clear Validation Logic:** Comprehensive assertions with meaningful error messages
-- ✅ **Accurate Handling of UI Edge Cases:** Handles actual rendered values (e.g., "Turkiye" vs "Turkey")
-- ✅ **Professional Standards:** Clean code, proper documentation, and industry best practices
-
----
-
 ## 📧 Contact
 
 **Ahmet Vahit TOPAN**  
-Insider QA Engineer Case Study Submission
+QA Engineer Case Study Submission
 
 ---
 
